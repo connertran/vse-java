@@ -12,6 +12,7 @@ public class Pes {
     }
 
     public Pes(Bouda bouda, String jmeno, int delka, String barva) {
+        this.bouda = bouda;
         this.jmeno = jmeno;
         this.delka = delka;
         this.barva = barva;
@@ -54,16 +55,11 @@ public class Pes {
     }
 
     public String zastekej(){
-        return "Go Go Go Go Go Go";
+        return "Haf haf haf!";
     }
 
     @Override
     public String toString() {
-        return "Pes{" +
-                "jmeno='" + jmeno + '\'' +
-                ", barva='" + barva + '\'' +
-                ", delka=" + delka +
-                ", zableseny=" + zableseny +
-                '}';
+        return "Jsem pes " + this.jmeno + " dlouhy "+ this.delka + "cm. "+ this.zastekej();
     }
 }

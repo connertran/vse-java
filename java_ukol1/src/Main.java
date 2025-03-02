@@ -1,17 +1,18 @@
 public class Main {
     public static void main(String[] args) {
-        // ✅ Create a Bouda
+        //vytvorit boudu
         Bouda bouda = new Bouda();
         bouda.setVyska(10);
         bouda.setSirka(5);
         bouda.setHloubka(3);
 
-        // ✅ Create a Pes with Bouda
+        //vytvorit psa
         Pes pes1 = new Pes(bouda, "Rex", 50, "hnědá");
-        System.out.println(pes1);
-        System.out.println("Objem boudy: " + pes1.getObjemBoudy());
 
-        // ✅ Make the dog bark
+        //vyzkouset objekt
+        System.out.println(pes1);
+        System.out.println(pes1.getJmeno());
+        System.out.println("Objem boudy: " + pes1.getObjemBoudy());
         System.out.println("Pes štěká: " + pes1.zastekej());
     }
 }

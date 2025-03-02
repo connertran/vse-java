@@ -30,13 +30,4 @@ public class Bouda {
     public int getObjem(){
         return hloubka * sirka * vyska;
     }
-
-    @Override
-    public String toString() {
-        return "Bouda{" +
-                "vyska=" + vyska +
-                ", sirka=" + sirka +
-                ", hloubka=" + hloubka +
-                '}';
-    }
 }
