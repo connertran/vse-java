@@ -1,6 +1,8 @@
 package com.example.document;
 
-public class WebPage {
+import com.example.catalog.Searchable;
+
+public class WebPage implements Searchable {
     private String address;
     private String title;
     private String contents;
@@ -33,5 +35,15 @@ public class WebPage {
 
     public void setContents(String contents) {
         this.contents = contents;
+    }
+
+    @Override
+    public String getDisplayName() {
+        return "Webová stránk: " + title;
+    }
+
+    @Override
+    public String prepareSearchableString() {
+        return address + title + contents;
     }
 }

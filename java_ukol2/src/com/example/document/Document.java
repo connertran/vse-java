@@ -1,6 +1,8 @@
 package com.example.document;
 
-public class Document {
+import com.example.catalog.Searchable;
+
+public class Document implements Searchable {
     private String serialNumber;
     private String subject;
     private String contents;
@@ -33,5 +35,15 @@ public class Document {
 
     public void setContents(String contents) {
         this.contents = contents;
+    }
+
+    @Override
+    public String getDisplayName() {
+        return "Dopis: " + subject;
+    }
+
+    @Override
+    public String prepareSearchableString() {
+        return serialNumber + subject + contents;
     }
 }

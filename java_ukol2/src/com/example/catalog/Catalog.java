@@ -1,5 +1,4 @@
 package com.example.catalog;
-import com.example.catalog.Searchable;
 
 public class Catalog {
 
@@ -41,10 +40,11 @@ public class Catalog {
     }
 
     public String printAll() {
-        return storedItem1.getDisplayName() + "\n" +
-                storedItem2.getDisplayName() + "\n" +
-                storedItem3.getDisplayName() + "\n" +
-                storedItem4.getDisplayName() + "\n";
+
+        return " - " +storedItem1.getDisplayName() + "\n" +
+                " - "+storedItem2.getDisplayName() + "\n" +
+                " - "+storedItem3.getDisplayName() + "\n" +
+                " - "+storedItem4.getDisplayName() + "\n";
     }
 
     public String find (String query) {

@@ -1,6 +1,8 @@
 package com.example.document;
 
-public class Interview {
+import com.example.catalog.Searchable;
+
+public class Interview implements Searchable {
     private String interviewee;
     private String interviewer;
     private String transcript;
@@ -43,5 +45,15 @@ public class Interview {
 
     public void setLengthinMinutes(int lengthinMinutes) {
         this.lengthinMinutes = lengthinMinutes;
+    }
+
+    @Override
+    public String getDisplayName() {
+        return "Rozhovor: " + interviewee;
+    }
+
+    @Override
+    public String prepareSearchableString() {
+        return interviewee + interviewer + transcript;
     }
 }

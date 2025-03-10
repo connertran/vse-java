@@ -1,6 +1,7 @@
 package com.example.document;
+import com.example.catalog.Searchable;
 
-public class Book {
+public class Book implements Searchable{
     private String name;
     private String ISBN;
     private String publisher;
@@ -53,5 +54,15 @@ public class Book {
 
     public void setNumberOfPages(int numberOfPages) {
         this.numberOfPages = numberOfPages;
+    }
+
+    @Override
+    public String getDisplayName() {
+        return "Kniha: " + name;
+    }
+
+    @Override
+    public String prepareSearchableString() {
+        return name + ISBN + publisher + year;
     }
 }
