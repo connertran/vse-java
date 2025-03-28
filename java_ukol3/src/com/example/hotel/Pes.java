@@ -1,19 +1,18 @@
 package com.example.hotel;
 
 public class Pes {
+    /** Výchozí barva psa, pokud není uvedena */
+    private static final String VYCHOZI_BARVA_PSA = "- barva je tajná -";
     private String jmeno;
     private String barva;
     private int delka;
     Bouda bouda;
 
+
     public Pes(String jmeno, int delka) {
-        this.jmeno = jmeno;
-        this.delka = delka;
+        this(jmeno, "Ehm, jsem neurčité barvy", delka );
     }
 
-//    public Pes(String jmeno, int delka) {
-//        this(jmeno, delka, "Ehm, jsem neurčité barvy");
-//    }
 
 
     public Pes(String jmeno, String barva, int delka) {
@@ -50,7 +49,7 @@ public class Pes {
         return bouda;
     }
 
-    public void setBouda(){
+    public void setBouda(Bouda bouda){
         this.bouda = bouda;
     }
 
@@ -73,6 +72,4 @@ public class Pes {
     public String toString() {
         return "Ja jsem pes " + jmeno + ". Haf haf!";
     }
-
-    //    trida neni hotova
 }
