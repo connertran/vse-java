@@ -2,6 +2,7 @@ package com.example.hotel;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Set;
 
 public class PsiHotel {
     private int maximalniObjemProBoudy;
@@ -21,12 +22,19 @@ public class PsiHotel {
     }
 
     public boolean pridejBoudu(Bouda bouda) {
-        int boudySize = this.boudy.size();
-        if (boudySize >= this.maximalniObjemProBoudy) {
-            return false;
-        } else {
-            return this.boudy.add(bouda);
+        int totalObjem = 0;
+        for(Bouda boudaHotelu : boudy){
+            totalObjem += boudaHotelu.getObjem();
+            if(totalObjem > this.maximalniObjemProBoudy){
+                return false;
+            }
         }
+        // Přičteme objem nové boudy
+        totalObjem += bouda.getObjem();
+        if (totalObjem > this.maximalniObjemProBoudy) {
+            return false;
+        }
+            return this.boudy.add(bouda);
     }
     public boolean odeberBoudu(Bouda bouda){
         int boudySize = this.boudy.size();
@@ -42,7 +50,7 @@ public class PsiHotel {
         for (Bouda bouda: boudy) {
 
             // A všechny psy v těchto boudách
-            for (Pes pes: bouda.getUbytovaniPsi()) {
+            for (Pes pes: bouda.getUbytovaniPsy()) {
 
                 // Každý pes zaštěká
                 pes.zastekej();
@@ -131,7 +139,8 @@ public class PsiHotel {
 
         // Existuje tato bouda v hotelu?
         // TODO doplnit výraz tak, aby navrátil boolean hodnotu dle toho, zdali je bouda v hotelu již umístěna
-        boolean maHotelBoudu = true;
+        boolean maHotelBoudu = this.boudy.contains(bouda);
+
 
         if (!maHotelBoudu) {
             // V hotelu musí bouda existovat, ale neexistuje,
@@ -158,7 +167,7 @@ public class PsiHotel {
      */
     private boolean ubytovavaPsa (Pes pes) {
         for (Bouda bouda: boudy) {
-            if (bouda.ubytovavaPsa(pes)) {
+            if (bouda.ubytovanaPsa(pes)) {
                 return true;
             }
         }
@@ -171,7 +180,7 @@ public class PsiHotel {
      */
     public void vypisBoudySePsi () {
         for (Bouda bouda: boudy) {
-            Set<Pes> ubytovaniPsi = bouda.getUbytovaniPsi();
+            Set<Pes> ubytovaniPsi = bouda.getUbytovaniPsy();
 
             System.out.print("Bouda typu " + bouda.getClass());
             System.out.print(", ubytováno " + ubytovaniPsi.size() + " psů:\n");
