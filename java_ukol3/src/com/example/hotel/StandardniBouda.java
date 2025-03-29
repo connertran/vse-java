@@ -10,7 +10,7 @@ public class StandardniBouda implements Bouda {
 
     private int kapacita;
 
-    private HashSet<Pes> ubytovani = new HashSet<>();
+    private Set<Pes> ubytovani = new HashSet<>();
 
     public StandardniBouda() {
         this.vyska = 1;
@@ -120,7 +120,7 @@ public class StandardniBouda implements Bouda {
     }
 
     @Override
-    public HashSet<Pes> getUbytovaniPsy() {
+    public Set<Pes> getUbytovaniPsy() {
         return this.ubytovani;
     }
 

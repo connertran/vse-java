@@ -8,7 +8,7 @@ public class LuxusniBouda implements Bouda {
     private int sirka;
     private int hloubka;
     private int kapacita;
-    private HashSet<Pes> ubytovani = new HashSet<>();
+    private Set<Pes> ubytovani = new HashSet<>();
 
     public LuxusniBouda() {
         this.vyska = 2;
@@ -118,7 +118,7 @@ public class LuxusniBouda implements Bouda {
     }
 
     @Override
-    public HashSet<Pes> getUbytovaniPsy() {
+    public Set<Pes> getUbytovaniPsy() {
         return this.ubytovani;
     }
 

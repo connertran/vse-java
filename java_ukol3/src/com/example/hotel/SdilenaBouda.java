@@ -8,7 +8,7 @@ public class SdilenaBouda implements Bouda{
     private int sirka;
     private int hloubka;
     private int kapacita;
-    private HashSet<Pes> ubytovani = new HashSet<>();
+    private Set<Pes> ubytovani = new HashSet<>();
 
     public SdilenaBouda() {
         this.vyska = 1;
@@ -120,7 +120,7 @@ public class SdilenaBouda implements Bouda{
     }
 
     @Override
-    public HashSet<Pes> getUbytovaniPsy() {
+    public Set<Pes> getUbytovaniPsy() {
          return this.ubytovani;
     }
 
