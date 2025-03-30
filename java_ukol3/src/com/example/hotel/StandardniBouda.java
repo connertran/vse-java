@@ -68,11 +68,16 @@ public class StandardniBouda implements Bouda {
 
         // Není pes "pes" již v této boudě přítomen?
         // TODO doplnit následující výraz tak aby vracel true v případě, kdy pes "pes" je v této boudě již přítomen
-        boolean jePesJizVBoude = this.ubytovani.contains(pes);
-
-        if (jePesJizVBoude) {
+        // boolean jePesJizVBoude = this.ubytovani.contains(pes); //mozna dva psi maji stejna jmena a velikost ale nejsou jako jeden pes
+//        if (jePesJizVBoude) {
+//            // Pes "pes" už v této boudě je, nemůže v ní být dvakrát
+//            return false;
+//        }
+        for(Pes pesVhotelu : ubytovani){
             // Pes "pes" už v této boudě je, nemůže v ní být dvakrát
-            return false;
+            if(pesVhotelu == pes){
+                return false;
+            }
         }
 
         // TODO zde obdobně jako výše v této metodě zkontrolovat,
