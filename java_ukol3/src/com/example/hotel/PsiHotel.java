@@ -190,4 +190,21 @@ public class PsiHotel {
             }
         }
     }
+
+    /**
+     * Implementovat Find string; Searchable už je implementován v rozhraní Bouda (a v boudách) a třídě Pes
+     */
+
+    public String find(String query){
+        String result = "";
+        for (Bouda bouda : boudy){
+            if(bouda.prepareSearchableString().contains(query)){
+                result += "- " + bouda.getDisplayName() + "\n";
+            }
+        }
+        if(result.isEmpty()){
+            result = "Žádná info o " + query + " v hotelu není.";
+        }
+        return result;
+    }
 }

@@ -2,7 +2,7 @@ package com.example.hotel;
 
 import java.util.Set;
 
-public interface Bouda {
+public interface Bouda extends Searchable{
     public int getKapacita();
     public void setKapacita(int kapacita);
 

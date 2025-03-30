@@ -1,6 +1,6 @@
 package com.example.hotel;
 
-public class Pes {
+public class Pes implements Searchable {
     /** Výchozí barva psa, pokud není uvedena */
     private static final String VYCHOZI_BARVA_PSA = "- barva je tajná -";
     private String jmeno;
@@ -15,7 +15,7 @@ public class Pes {
 
 
 
-    public Pes(String jmeno, String barva, int delka) {
+    public Pes (String jmeno, String barva, int delka) {
         this.jmeno = jmeno;
         this.barva = barva;
         this.delka = delka;
@@ -71,5 +71,15 @@ public class Pes {
     @Override
     public String toString() {
         return "Ja jsem pes " + jmeno + ". Haf haf!";
+    }
+
+    @Override
+    public String getDisplayName() {
+        return this.jmeno;
+    }
+
+    @Override
+    public String prepareSearchableString() {
+        return jmeno + " " + barva + " " + delka;
     }
 }

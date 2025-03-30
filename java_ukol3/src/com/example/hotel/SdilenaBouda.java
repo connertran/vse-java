@@ -8,6 +8,7 @@ public class SdilenaBouda implements Bouda{
     private int sirka;
     private int hloubka;
     private int kapacita;
+    private String oznaceni;
     private Set<Pes> ubytovani = new HashSet<>();
 
     public SdilenaBouda() {
@@ -15,6 +16,7 @@ public class SdilenaBouda implements Bouda{
         this.sirka = 2;
         this.hloubka = 2;
         this.kapacita = 4;
+        this.oznaceni = "Sdilena bouda";
     }
 
     public int getVyska() {
@@ -127,5 +129,19 @@ public class SdilenaBouda implements Bouda{
     @Override
     public int getObjem() {
         return vyska * sirka * hloubka;
+    }
+
+    @Override
+    public String getDisplayName() {
+        return this.oznaceni;
+    }
+
+    @Override
+    public String prepareSearchableString() {
+        String result = oznaceni + " kapacita:" + kapacita + " objem:" + getObjem() + " psi:";
+        for(Pes pes : ubytovani){
+            result += pes.getDisplayName();
+        }
+        return result;
     }
 }

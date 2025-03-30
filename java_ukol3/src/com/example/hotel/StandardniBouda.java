@@ -9,6 +9,7 @@ public class StandardniBouda implements Bouda {
     private int hloubka;
 
     private int kapacita;
+    private String oznaceni;
 
     private Set<Pes> ubytovani = new HashSet<>();
 
@@ -17,6 +18,7 @@ public class StandardniBouda implements Bouda {
         this.sirka = 1;
         this.hloubka = 2;
         this.kapacita = 1;
+        this.oznaceni = "Standarni bouda";
     }
 
     public int getVyska() {
@@ -127,5 +129,19 @@ public class StandardniBouda implements Bouda {
     @Override
     public int getObjem() {
         return vyska * sirka * hloubka;
+    }
+
+    @Override
+    public String getDisplayName() {
+        return this.oznaceni;
+    }
+
+    @Override
+    public String prepareSearchableString() {
+        String result = oznaceni + " kapacita:" + kapacita + " objem:" + getObjem() + " psi:";
+        for(Pes pes : ubytovani){
+            result += pes.getDisplayName();
+        }
+        return result;
     }
 }
